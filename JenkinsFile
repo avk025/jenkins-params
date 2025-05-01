@@ -1,0 +1,26 @@
+properties([
+    parameters([
+        // Regular Choice Parameters
+        choice(name: 'SAMPLE1_CHOICE', choices: ['1', '2', '3'], description: 'Select a value for Sample 1'),
+        choice(name: 'SAMPLE1_EXTENDED', choices: ['2'], description: 'Extended version of Sample 1 (always returns 2)'),
+
+        choice(name: 'SAMPLE2_CHOICE', choices: ['4', '5', '6'], description: 'Select a value for Sample 2'),
+        choice(name: 'SAMPLE2_EXTENDED', choices: ['6'], description: 'Extended version of Sample 2 (always returns 6)'),
+
+        choice(name: 'SAMPLE3_CHOICE', choices: ['A', 'B', 'C'], description: 'Select a value for Sample 3'),
+        choice(name: 'SAMPLE3_EXTENDED', choices: ['C'], description: 'Extended version of Sample 3 (always returns C)')
+    ])
+])
+
+node {
+    stage('Print Parameters') {
+        echo "SAMPLE1_CHOICE: ${params.SAMPLE1_CHOICE}"
+        echo "SAMPLE1_EXTENDED: ${params.SAMPLE1_EXTENDED}"
+
+        echo "SAMPLE2_CHOICE: ${params.SAMPLE2_CHOICE}"
+        echo "SAMPLE2_EXTENDED: ${params.SAMPLE2_EXTENDED}"
+
+        echo "SAMPLE3_CHOICE: ${params.SAMPLE3_CHOICE}"
+        echo "SAMPLE3_EXTENDED: ${params.SAMPLE3_EXTENDED}"
+    }
+}
